@@ -13,3 +13,138 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  margin:0;
+  padding:0;
+}
+
+body{
+  width:100vw;
+  min-height:100vh;
+  margin: 0;
+  padding: 0;
+
+}
+
+#main_content{
+  width:1100px;
+  background-color:#fdfdfd;
+  margin: 0 auto;
+  z-index: 1;
+  min-height:100vh;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(170,170,170,1);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(170,170,170,1);
+  box-shadow: 0px 0px 25px 0px rgba(170,170,170,1);
+
+}
+
+#header{
+  height:120px;
+  background-color: #fdfdfd;
+  padding-right: 35px;
+  position: relative;
+}
+
+#logo{
+  left:0;top:0;bottom:0;
+  width:400px;
+  font-size:3em;
+  font-weight:700;
+  color:#444444;
+  padding-left:45px;
+}
+
+// Text Properties
+
+// Font Families
+
+.lora{ font-family: 'Lora', serif; }
+.lato{ font-family: 'Lato', serif; }
+.opens{ font-family:'Open Sans', sans-serif; }
+.merri{ font-family:'Merriweather', serif; }
+
+// -- Font Size
+.fontSize48{  font-size: 3em;     }
+.fontSize44{  font-size: 2.75em;     }
+.fontSize40{  font-size: 2.5em;  }
+.fontSize36{  font-size: 2.25em;  }
+.fontSize32{  font-size: 2em;  }
+.fontSize31{  font-size: 1.9375em;  }
+.fontSize30{  font-size: 1.875em;  }
+.fontSize29{  font-size: 1.8125em;  }
+.fontSize28{  font-size: 1.75em;  }
+.fontSize27{  font-size: 1.6875em;  }
+.fontSize26{  font-size: 1.625em;  }
+.fontSize25{  font-size: 1.5625em;  }
+.fontSize24{  font-size: 1.5em;  }
+.fontSize23{  font-size: 1.4375em;  }
+.fontSize22{  font-size: 1.375em;  }
+.fontSize21{  font-size: 1.3125em;  }
+.fontSize20{  font-size: 1.25em;  }
+.fontSize19{  font-size: 1.1875em;  }
+.fontSize18{  font-size: 1.125em;  }
+.fontSize17{  font-size: 1.0625em;  }
+.fontSize16{  font-size: 1em;  }
+.fontSize15{  font-size: 0.9375em;  }
+.fontSize14{  font-size: 0.875em;  }
+.fontSize13{  font-size: 0.8125em;  }
+.fontSize12{  font-size: 0.75em;  }
+.fontSize11{  font-size: 0.6875em;  }
+.fontSize10{  font-size: 0.625em;  }
+
+// Manipulate Font Weight
+.fontWeight100  {  font-weight: 100;  }
+.fontWeight200  {  font-weight: 200;  }
+.fontWeight300  {  font-weight: 300;  }
+.fontWeight400  {  font-weight: 400;  }
+.fontWeight500  {  font-weight: 500;  }
+.fontWeight600, .hoverFontWeight600:hover  {  font-weight: 600;  }
+.fontWeight700  {  font-weight: 700;  }
+.fontWeight800  {  font-weight: 800;  }
+.fontWeight900  {  font-weight: 900;  }
+.italic{  font-style:italic;  }
+
+// Uppercase
+.uppercase    {  text-transform: uppercase;  }
+.lowercase    {  text-transform: lowercase;  }
+
+// Display
+.inlineBlock  {  display: inline-block;  }
+.inline       {  display: inline;  }
+.block        {  display: block;  }
+
+// Float
+.floatRight   {  float: right;  }
+.floatLeft    {  float: left;  }
+
+//Position
+.posRel       {  position: relative;  }
+.posAbs       {  position: absolute;  }
+.posFix       {  position: fixed;  }
+
+// Alignment
+.centerText {  text-align: center;  }
+.leftText   {  text-align: left;  }
+.rightText  {  text-align: right;  }
+
+.vertAlignTop {  vertical-align: top;  }
+.vertAlignMid {  vertical-align: middle;  }
+.vertAlignBot {  vertical-align: bottom;  }
+
+.centerBlock    {  margin-left: auto; margin-right: auto;  }
+@mixin displayFlex{  display: -ms-flexbox; /* IE 10 */ display: -webkit-flex; /* Safari 6 */ display: flex; /* Modern browsers */}
+.vertCenterLeft   {  @include displayFlex; align-items:center;  }
+.vertCenterMiddle {  @include displayFlex; align-items:center; justify-content: center;}
+.vertCenterRight  {  @include displayFlex; align-items:center; justify-content: flex-end;}
+
+// Links
+.link{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 0 15px;
+}
