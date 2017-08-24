@@ -1,0 +1,34 @@
+<div class="movie vertCenterLeft overflowHidden" style="height:300px;margin-bottom:30px;background-color:white;
+    border:1px solid lightgrey; border-radius:3px;
+    -webkit-box-shadow: 0px 5px 10px 0px #ddd;
+    -moz-box-shadow: 0px 5px 10px 0px #ddd;
+    box-shadow: 0px 5px 10px 0px #ddd;">
+  <!-- Image -->
+    <img src="<%="https://image.tmdb.org/t/p/original/"+movie["poster_path"]%>" height="300px" width="200px" /><!-- create link to image -->
+
+  <!-- Information -->
+  <div class="information posRel" style="width:700px;height:100%;padding-left:30px;padding-top:30px;padding-right:30px;">
+    <div class="title lora" style="font-size:2em;font-weight:700;margin-bottom:20px;"><%= movie["original_title"] %></div>
+    <div class="release" style="font-size:1.3em;margin-bottom:20px;color: #4BC5FF;">Released on <%= DateTime.strptime(movie["release_date"], '%Y-%m-%d').strftime('%b %d, %Y') %></div>
+    <div class="overview opens" style="font-size:1.5em;font-weight:400;margin-bottom:20px;line-height:1.3em;">
+      <%= (movie["overview"].length > 200) ? movie["overview"][0, 200]+"...": movie["overview"] %>
+    </div>
+
+    <div class="genres posAbs" style="margin-bottom:15px;left:30px;right:30px;bottom:0;">
+      <% movie["genre_ids"].each do |genre_id| %>
+          <div class="inlineBlock opens" style="font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= get_genre(genre_id) %></div>
+      <% end %>
+    </div>
+
+    <div class="posAbs" style="right:20px;top:18px;height:65px;">
+      <div class="vertCenterRight">
+
+        <% 4.times do %>
+            <%= image_tag 'star.png', height: '34px', width: '34px', style: 'margin-left:15px;' %>
+        <% end %>
+      </div>
+      <div class="rightText" style="margin-top:12px;color:gray;">See Reviews</div>
+
+    </div>
+  </div>
+</div>

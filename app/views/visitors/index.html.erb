@@ -1,2 +1,20 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div style="background-color: #f4f4f4;padding-top:30px;">
+  <div class="textContent inlineBlock vertAlignTop" style="padding-left:45px;padding-right:45px;width:950px;">
+    <% @movies.each do |movie| %>
+        <%= render 'movies/movie', movie: movie %>
+    <% end %>
+  </div>
+  <div class="inlineBlock vertAlignTop" style="width:500px;">
+    <div style="background-color:white;-webkit-box-shadow: 0px 5px 10px 0px #ddd;
+        -moz-box-shadow: 0px 5px 10px 0px #ddd;
+        box-shadow: 0px 5px 10px 0px #ddd;
+        border:1px solid lightgrey;padding:30px;">
+      <div class="lora" style="font-size:2.5em;border-bottom: 1px solid lightgrey;padding-bottom:20px;margin-bottom:20px;font-weight:700;">Recent Reviews</div>
+      <%= render 'reviews/review' %>
+
+      <div class="lora" style="font-size:2.5em;border-bottom: 1px solid lightgrey;padding-bottom:20px;margin-top:50px;margin-bottom:20px;font-weight:700;">Recent Movies</div>
+      <%= render 'movies/mini_movie' %>
+    </div>
+  </div>
+</div>
+

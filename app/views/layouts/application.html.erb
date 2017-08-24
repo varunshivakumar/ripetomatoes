@@ -25,12 +25,13 @@
   </head>
   <body class="posRel">
     <%= image_tag 'pattern.png', class: "posAbs", style: "top:0;height:100%;z-index:0;opacity:0.9;" %>
-    <div id="main_content" class="posRel">
+    <div id="main_content">
       <%= render 'layouts/navigation' %>
-      <main role="main">
-         <%= render 'layouts/messages' %>
-         <%= yield %>
-      </main>
+      <%= render 'layouts/messages' %>
+
+      <div class="posRel" style="overflow-y:scroll;height:100%;width:100%;">
+        <%= yield %>
+      </div>
     </div>
   </body>
 
