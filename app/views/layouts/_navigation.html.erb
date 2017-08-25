@@ -8,10 +8,29 @@
     <%= render 'layouts/nav_links_for_auth' %>
   </div>
   <div id="sorting">
-    <div class="inlineBlock sortingLink" style="font-weight:700;">Sort By</div>
-    <div class="inlineBlock sortingLink">Popular</div>
-    <div class="inlineBlock sortingLink">Title</div>
-    <div class="inlineBlock sortingLink">Release Date</div>
-    <div class="inlineBlock sortingLink">Genre</div>
+    <div class="inlineBlock posRel" style="font-weight:700;font-family: 'Open Sans', sans-serif;
+        font-size: 1.2em;
+        padding: 0 15px;">Sort By</div>
+    <div id="popular" class="inlineBlock sortingLink posRel"><%= link_to 'Popular', root_path %></div>
+    <div id="top_rated" class="inlineBlock sortingLink posRel"><%= link_to 'Top Rated', root_path(sort_by: "top_rated") %></div>
+    <div id="now_playing" class="inlineBlock sortingLink posRel"><%= link_to 'Now Playing', root_path(sort_by: "now_playing") %></div>
+    <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "latest") %></div>
+    <div class="inlineBlock sortingLink posRel"><%= link_to 'Title', root_path %></div>
+    <div class="inlineBlock sortingLink posRel"><%= link_to 'Genre', root_path %></div>
   </div>
 </div>
+
+<script>
+  var sorting_link = $(".sortingLink");
+  var red_line = '<div class="posAbs sortingLine" style="bottom:-25px;left:0;right:0;height:6px;background-color:#E85256;border-top-left-radius:8px;border-top-right-radius:8px;"></div>';
+
+  sorting_link.mouseenter(function(){
+    $(this).append(red_line)
+  });
+  sorting_link.mouseleave(function(){
+    if ($(this).attr('id') != '<%=@sort_by%>'){
+      $(this).find('.sortingLine').remove();
+    }
+  });
+  $("#<%=@sort_by%>").append(red_line);
+</script>

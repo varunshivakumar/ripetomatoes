@@ -20,7 +20,7 @@
       <%= (movie["overview"].length > 200) ? movie["overview"][0, 200]+"...": movie["overview"] %>
     </div>
 
-    <div class="genres posAbs" style="margin-bottom:15px;left:30px;right:30px;bottom:0;">
+    <div class="genres posAbs" style="margin-bottom:15px;left:25px;right:25px;bottom:0;">
       <% movie["genre_ids"].each do |genre_id| %>
           <div class="inlineBlock opens" style="font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= get_genre(genre_id) %></div>
       <% end %>
