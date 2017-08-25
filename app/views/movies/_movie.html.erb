@@ -11,10 +11,12 @@
   <% end %>
 
   <!-- Information -->
-  <div class="information posRel" style="width:700px;height:100%;padding-left:30px;padding-top:30px;padding-right:30px;">
-    <div class="title lora" style="font-size:2em;font-weight:700;margin-bottom:20px;"><%= movie["original_title"] %></div>
+  <div class="information posRel" style="width:720px;height:100%;padding-left:25px;padding-top:22px;padding-right:25px;">
+    <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
+      <%= (movie["original_title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
+    </div>
     <div class="release" style="font-size:1.3em;margin-bottom:20px;color: #4BC5FF;">Released on <%= DateTime.strptime(movie["release_date"], '%Y-%m-%d').strftime('%b %d, %Y') %></div>
-    <div class="overview opens" style="font-size:1.5em;font-weight:400;margin-bottom:20px;line-height:1.3em;">
+    <div class="overview opens" style="font-size:1.25em;font-weight:400;margin-bottom:20px;line-height:1.3em;color:grey;">
       <%= (movie["overview"].length > 200) ? movie["overview"][0, 200]+"...": movie["overview"] %>
     </div>
 
@@ -24,14 +26,16 @@
       <% end %>
     </div>
 
-    <div class="posAbs" style="right:20px;top:18px;height:65px;">
-      <div class="vertCenterRight">
-
-        <% 4.times do %>
-            <%= image_tag 'star.png', height: '34px', width: '34px', style: 'margin-left:15px;' %>
-        <% end %>
+    <div class="posAbs" style="right:12px;top:12px;height:65px;">
+      <div class="vertCenterRight" style="border:1px solid grey;border-radius:5px;">
+          <% (movie["vote_average"]/2).round.times do %>
+              <%= image_tag 'star.png', height: '25px', width: '25px', style: 'margin-left:15px;' %>
+          <% end %>
+        <div class="opens vertCenterMiddle opens" style="color:white;font-weight:700;font-size:1.7em;background-color:grey;padding:0 10px 0 12px;margin-left:15px;height:40px;"><%= (movie["vote_average"]/2) %></div>
       </div>
-      <div class="rightText" style="margin-top:12px;color:gray;">See Reviews</div>
+      <div class="rightText" style="margin-top:12px;color:gray;font-size:1.1em;">
+        <%= link_to 'See Reviews (100)', root_path, class: 'inlineBlock vertAlignTop' %>
+      </div>
 
     </div>
   </div>
