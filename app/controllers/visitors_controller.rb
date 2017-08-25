@@ -22,19 +22,25 @@ class VisitorsController < ApplicationController
     end
   end
 
-  def release_date
+  def latest
     @page = params[:page].nil? ? 1 : params[:page]
     @api_key = "5c6aa64f2306d670d1918784955b7812"
 
-    latest = JSON.parse(HTTP.get("https://api.themoviedb.org/3/movie/#{@sort_by}?&api_key=#{@api_key}"))["id"]
-    request = HTTP.get("https://api.themoviedb.org/3/movie/#{@sort_by}?&api_key=#{@api_key}")
+    latest = JSON.parse(HTTP.get("https://api.themoviedb.org/3/movie/latest?&api_key=#{@api_key}"))["id"]
 
-    movies = []
+    @movies = []
+    second_latest = (latest - (20 * @page))
+    latest_movie = (latest - (20 * (@page - 1)))
 
-    (latest-(20 * @page)..latest-(20 * (@page - 1))).to_a.each do |movie_id|
-      data = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{api_key}&language=en-US")
+    (second_latest..latest_movie).to_a.each do |movie_id|
+      data = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{@api_key}&language=en-US")
       md = JSON.parse(data)
-      movies << md
+      @movies << md
+    end
+
+    respond_to do |format|
+      format.html { render 'visitors/index' }
+      format.js
     end
 
   end

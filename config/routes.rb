@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'visitors#index'
-  get 'visitors#latest'
+  get 'latest', to: 'visitors#latest', as: 'latest'
 
   devise_for :users
   resources :users

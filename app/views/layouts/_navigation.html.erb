@@ -14,7 +14,8 @@
     <div id="popular" class="inlineBlock sortingLink posRel"><%= link_to 'Popular', root_path %></div>
     <div id="top_rated" class="inlineBlock sortingLink posRel"><%= link_to 'Top Rated', root_path(sort_by: "top_rated") %></div>
     <div id="now_playing" class="inlineBlock sortingLink posRel"><%= link_to 'Now Playing', root_path(sort_by: "now_playing") %></div>
-    <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "latest") %></div>
+    <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "upcoming") %></div>
+    <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Latest Added', latest_path %></div>
     <div class="inlineBlock sortingLink posRel"><%= link_to 'Title', root_path %></div>
     <div class="inlineBlock sortingLink posRel"><%= link_to 'Genre', root_path %></div>
   </div>

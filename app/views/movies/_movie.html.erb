@@ -12,31 +12,43 @@
 
   <!-- Information -->
   <div class="information posRel" style="width:720px;height:100%;padding-left:25px;padding-top:22px;padding-right:25px;">
-    <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
-      <%= (movie["original_title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
-    </div>
-    <div class="release" style="font-size:1.3em;margin-bottom:20px;color: #4BC5FF;">Released on <%= DateTime.strptime(movie["release_date"], '%Y-%m-%d').strftime('%b %d, %Y') %></div>
-    <div class="overview opens" style="font-size:1.25em;font-weight:400;margin-bottom:20px;line-height:1.3em;color:grey;">
-      <%= (movie["overview"].length > 200) ? movie["overview"][0, 200]+"...": movie["overview"] %>
-    </div>
+    <% unless movie["original_title"].nil? %>
+        <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
+          <%= (movie["original_title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
+        </div>
+    <% end %>
+
+    <% unless movie["release_date"].nil? or movie["release_date"].empty? %>
+        <div class="release" style="font-size:1.3em;margin-bottom:20px;color: #4BC5FF;">Released on <%= DateTime.strptime(movie["release_date"], '%Y-%m-%d').strftime('%b %d, %Y') %></div>
+    <% end %>
+
+    <% unless movie["overview"].nil? %>
+        <div class="overview opens" style="font-size:1.25em;font-weight:400;margin-bottom:20px;line-height:1.3em;color:grey;">
+          <%= (movie["overview"].length > 200) ? movie["overview"][0, 200]+"...": movie["overview"] %>
+        </div>
+    <% end %>
 
     <div class="genres posAbs" style="margin-bottom:15px;left:25px;right:25px;bottom:0;">
-      <% movie["genre_ids"].each do |genre_id| %>
-          <div class="inlineBlock opens" style="font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= get_genre(genre_id) %></div>
+      <% unless movie["genre_ids"].nil? %>
+          <% movie["genre_ids"].each do |genre_id| %>
+              <div class="inlineBlock opens" style="font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= get_genre(genre_id) %></div>
+          <% end %>
       <% end %>
     </div>
 
     <div class="posAbs" style="right:12px;top:12px;height:65px;">
-      <div class="vertCenterRight" style="border:1px solid grey;border-radius:5px;">
-          <% (movie["vote_average"]/2).round.times do %>
-              <%= image_tag 'star.png', height: '25px', width: '25px', style: 'margin-left:15px;' %>
-          <% end %>
-        <div class="opens vertCenterMiddle opens" style="color:white;font-weight:700;font-size:1.7em;background-color:grey;padding:0 10px 0 12px;margin-left:15px;height:40px;"><%= (movie["vote_average"]/2) %></div>
-      </div>
+      <% unless movie["vote_average"].nil? %>
+          <div class="vertCenterRight" style="border:1px solid grey;border-radius:5px;">
+            <% (movie["vote_average"]/2).round.times do %>
+                <%= image_tag 'star.png', height: '25px', width: '25px', style: 'margin-left:15px;' %>
+            <% end %>
+            <div class="opens vertCenterMiddle opens" style="color:white;font-weight:700;font-size:1.7em;background-color:grey;padding:0 10px 0 12px;margin-left:15px;height:40px;"><%= (movie["vote_average"]/2) %></div>
+          </div>
+      <% end %>
+
       <div class="rightText" style="margin-top:12px;color:gray;font-size:1.1em;">
         <%= link_to 'See Reviews (100)', root_path, class: 'inlineBlock vertAlignTop' %>
       </div>
-
     </div>
   </div>
 </div>
