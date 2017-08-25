@@ -1,8 +1,16 @@
 <div style="background-color: #f4f4f4;padding-top:30px;">
-  <div class="textContent inlineBlock vertAlignTop" style="padding-left:45px;padding-right:45px;width:950px;">
-    <% @movies.each do |movie| %>
-        <%= render 'movies/movie', movie: movie %>
+  <div id="movie_list" class="textContent inlineBlock vertAlignTop" style="padding-left:45px;padding-right:45px;width:950px;">
+    <% if not @movies.nil? and @movies.any? %>
+        <% @movies.each do |movie| %>
+            <%= render 'movies/movie', movie: movie %>
+        <% end %>
     <% end %>
+
+    <div id="load_more_container">
+      <%= link_to root_path(page: @page+1), remote: true do %>
+          <div id="load_more" class="opens vertCenterMiddle" style="color:white;background-color:#E85256;border-radius:5px;font-size:2em;width:200px;height:50px;margin: 30px auto;">Load More</div>
+      <% end %>
+    </div>
   </div>
   <div class="inlineBlock vertAlignTop" style="width:500px;">
     <div style="background-color:white;-webkit-box-shadow: 0px 5px 10px 0px #ddd;
@@ -17,4 +25,3 @@
     </div>
   </div>
 </div>
-

@@ -1,0 +1,8 @@
+<% if not @movies.nil? and @movies.any? %>
+  <% @movies.each do |movie| %>
+    $('#load_more_container').before('<%= j render 'movies/movie', movie: movie %>');
+  <% end %>
+<% end %>
+
+$("#load_more_container").html('<a data-remote="true" href="/?page='+'<%=@page.to_i+1%>'+'"><div class="opens vertCenterMiddle" style="color:white;background-color:#E85256;border-radius:5px;font-size:2em;width:200px;height:50px;margin: 30px auto;">Load More</div></a>');
+
