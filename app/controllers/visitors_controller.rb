@@ -3,6 +3,9 @@ class VisitorsController < ApplicationController
 
   def index
 
+    @upcoming = Tmdb::Movie.now_playing(region: 'US')['results'][0..5]
+    @reviews = @upcoming.map{|movie| Tmdb::Movie.reviews(movie["id"]).results.first }
+
     @page = params[:page].nil? ? 1 : params[:page]
 
     if params[:sort_by].nil?
