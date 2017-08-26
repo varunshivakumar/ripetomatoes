@@ -13,9 +13,11 @@
   <!-- Information -->
   <div class="information posRel" style="width:720px;height:100%;padding-left:25px;padding-top:22px;padding-right:25px;">
     <% unless movie["title"].nil? %>
-        <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
-          <%= (movie["title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
-        </div>
+        <%= link_to movie_path(id: movie["id"]) do %>
+            <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
+              <%= (movie["title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
+            </div>
+        <% end %>
     <% end %>
 
     <% unless movie["release_date"].nil? or movie["release_date"].empty? %>
