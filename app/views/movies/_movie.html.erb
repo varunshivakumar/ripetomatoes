@@ -50,7 +50,7 @@
           <div class="opens vertCenterMiddle opens" style="color:white;font-weight:700;font-size:1.7em;background-color:grey;padding:0 10px 0 12px;margin-left:15px;height:40px;border-radius:5px;">Not Rated</div>
       <% end %>
       <div class="rightText" style="margin-top:12px;color:gray;font-size:1.1em;">
-        <%= link_to 'See Reviews (100)', root_path, class: 'inlineBlock vertAlignTop' %>
+        <%= link_to 'See Reviews (' + Review.where(movie: movie["id"]).count.to_s + ')', movie_path(id: movie["id"]), class: 'inlineBlock vertAlignTop' %>
       </div>
     </div>
 
