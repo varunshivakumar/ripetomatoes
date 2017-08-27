@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.all.order('created_at DESC')
+  end
+
   def new
     @review = Review.new
   end

@@ -1,0 +1,9 @@
+<div class="posRel" style="margin-bottom:35px;">
+  <div class="lora" style="font-size:1.5em;margin-bottom:10px;font-weight:700;"><%= movie["original_title"]%></div>
+  <% if false %>
+      <div style="font-size:1.3em;margin-bottom:15px;color: #4BC5FF;">Released on</div>
+  <% end %>
+  <div class="opens" style="font-size:1.2em;margin-bottom:15px;font-weight:400;color:gray;"><%= review["content"].length > 300 ? review["content"][0..300]+"..." : review["content"] %></div>
+  <div class="merri centerText" style="font-size:1.5em;margin-bottom:15px;"><%= review["author"] %></div>
+  <div class="lato posAbs" style="top:-1px;right:2px;font-size:1.5em;margin-bottom:15px;font-weight:700;"><%= (movie["vote_average"]/2).round %> / 5</div>
+</div>

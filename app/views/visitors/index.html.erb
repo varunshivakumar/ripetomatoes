@@ -23,7 +23,7 @@
       </div>
       <% (0..5).each do |i| %>
           <% if (not @upcoming[i].nil?) and (not @reviews[i].nil?) %>
-              <%= render 'reviews/review', movie: @upcoming[i], review: @reviews[i] %>
+              <%= render 'reviews/side_review', movie: @upcoming[i], review: @reviews[i] %>
           <% end %>
       <% end %>
     </div>
