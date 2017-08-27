@@ -1,7 +1,6 @@
 <div id="top" style="height:165px; border-bottom: 1px solid lightgrey;">
   <div id="header" class="vertCenterRight">
     <div id="logo" class="posAbs lato vertCenterLeft">Watchable</div>
-    <div class="inlineBlock link"><%= link_to 'Home', page_path('about') %></div>
     <div class="inlineBlock link"><%= link_to 'Movies', page_path('about') %></div>
     <div class="inlineBlock link"><%= link_to 'Reviews', page_path('about') %></div>
     <div class="inlineBlock link"><%= link_to 'About', page_path('about') %></div>
@@ -22,7 +21,7 @@
 
 <script>
   var sorting_link = $(".sortingLink");
-  var red_line = '<div class="posAbs sortingLine" style="bottom:-25px;left:0;right:0;height:6px;background-color:#E85256;border-top-left-radius:8px;border-top-right-radius:8px;"></div>';
+  var red_line = '<div class="posAbs sortingLine" style="bottom:-20px;left:0;right:0;height:6px;background-color:#E85256;border-top-left-radius:8px;border-top-right-radius:8px;"></div>';
 
   sorting_link.mouseenter(function(){
     $(this).append(red_line)

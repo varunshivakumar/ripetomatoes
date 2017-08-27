@@ -26,7 +26,7 @@
       <% end %>
     </div>
 
-    <div style="width:1000px;height:580px;padding-left:40px;">
+    <div style="width:1000px;height:620px;padding-left:40px;">
       <% unless @movie["title"].nil? %>
           <div class="title lora" style="font-size:3em;font-weight:700;margin-bottom:30px;">
             <%= @movie["title"] %>
@@ -46,11 +46,33 @@
       <% unless @movie["genres"].nil? %>
           <div class="genres" style="margin-bottom:15px;">
             <% @movie["genres"].each do |genre| %>
-                <div class="inlineBlock opens" style="margin-bottom:5px;font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= genre["name"] %></div>
+                <div class="inlineBlock opens" style="margin-bottom:5px;font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:3px 12px 4px 12px;"><%= genre["name"] %></div>
             <% end %>
           </div>
       <% end %>
 
+      <!-- Create a review for this menu -->
+      <%= form_for(@review, remote: true) do |f| %>
+          <%= f.hidden_field :movie, value: @movie.id %>
+          <p>
+            <%= f.label :rating %><br>
+            <%= f.number_field :rating, min: 1, max: 5 %>
+          </p>
+          <p>
+            <%= f.label :comment %><br>
+            <%= f.text_field :comment %>
+          </p>
+          <p>
+            <%= f.submit %>
+          </p>
+      <% end %>
+
+      <!-- All reviews for this menu -->
+      <div>
+        <% @movie_reviews.each do |review| %>
+          <%= render 'reviews/movie_review', review: review %>
+        <% end %>
+      </div>
 
     </div>
   </div>

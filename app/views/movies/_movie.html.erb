@@ -14,7 +14,7 @@
   <div class="information posRel" style="width:720px;height:100%;padding-left:25px;padding-top:22px;padding-right:25px;">
     <% unless movie["title"].nil? %>
         <%= link_to movie_path(id: movie["id"]) do %>
-            <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
+            <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:10px;">
               <%= (movie["title"].length > 22) ? movie["title"][0, 22]+"..." : movie["title"] %>
             </div>
         <% end %>
@@ -33,7 +33,7 @@
     <% unless movie["genre_ids"].nil? %>
         <div class="genres posAbs" style="margin-bottom:15px;left:25px;right:25px;bottom:0;">
           <% movie["genre_ids"].each do |genre_id| %>
-              <div class="inlineBlock opens" style="margin-bottom:5px;font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:4px 12px 1px 12px;"><%= get_genre(genre_id) %></div>
+              <div class="inlineBlock opens" style="margin-bottom:5px;font-weight:700;background-color:#E85256;border-radius:15px;height:27px;font-size:1.1em;color:white;margin-right:10px;padding:3px 12px 2px 12px;"><%= get_genre(genre_id) %></div>
           <% end %>
         </div>
     <% end %>
