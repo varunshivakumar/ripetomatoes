@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def show
-    # @movie = Movie.find(params[:id])
+    @movie = Tmdb::Movie.detail(params[:id])
   end
 
 

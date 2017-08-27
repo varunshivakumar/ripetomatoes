@@ -15,7 +15,7 @@
     <% unless movie["title"].nil? %>
         <%= link_to movie_path(id: movie["id"]) do %>
             <div class="title lora" style="font-size:2.1em;font-weight:700;margin-bottom:20px;">
-              <%= (movie["title"].length > 22) ? movie["original_title"][0, 22]+"..." : movie["original_title"] %>
+              <%= (movie["title"].length > 22) ? movie["title"][0, 22]+"..." : movie["title"] %>
             </div>
         <% end %>
     <% end %>
