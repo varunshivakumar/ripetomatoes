@@ -19,7 +19,7 @@
         border:1px solid lightgrey;padding:30px;padding-bottom:0;">
       <div class="lora" style="font-size:2em;border-bottom: 1px solid lightgrey;padding-bottom:20px;margin-bottom:20px;font-weight:700;">
         Recent Reviews
-        <div class="inlineBlock rightText" style="font-size:0.75em;margin-left:60px;">See All Reviews</div>
+        <div class="inlineBlock rightText" style="font-size:0.75em;margin-left:60px;"><%= link_to 'See All Reviews', reviews_path %></div>
       </div>
       <% (0..5).each do |i| %>
           <% if (not @upcoming[i].nil?) and (not @reviews[i].nil?) %>

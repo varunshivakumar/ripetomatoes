@@ -1,6 +1,8 @@
 <div id="top" style="height:165px; border-bottom: 1px solid lightgrey;">
   <div id="header" class="vertCenterRight">
-    <div id="logo" class="posAbs lato vertCenterLeft">Watchable</div>
+    <div id="logo" class="posAbs lato vertCenterLeft">
+      <%= image_tag 'icon.png', height: '50px', width: '50px', class: 'inlineBlock vertAlignTop', style: 'margin-right:20px;margin-left:0;' %>Watchable
+    </div>
     <div class="inlineBlock link"><%= link_to 'Movies', root_path %></div>
     <div class="inlineBlock link"><%= link_to 'Reviews', reviews_path %></div>
     <div class="inlineBlock link"><%= link_to 'About', page_path('about') %></div>
