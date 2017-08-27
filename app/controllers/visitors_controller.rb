@@ -3,19 +3,22 @@ class VisitorsController < ApplicationController
 
   def index
 
+    @sort_by = params["sort_by"]
     @upcoming = Tmdb::Movie.now_playing(region: 'US')['results'][0..5]
     @reviews = @upcoming.map{|movie| Tmdb::Movie.reviews(movie["id"]).results.first }
 
     @page = params[:page].nil? ? 1 : params[:page]
 
-    if params[:sort_by].nil?
+    if @sort_by.nil?
       @data = Tmdb::Movie.popular(page: @page, region: 'US')
-    elsif params["sort_by"] == "top_rated"
+    elsif @sort_by == "top_rated"
       @data = Tmdb::Movie.top_rated(page: @page, region: 'US')
-    elsif params["sort_by"] == "now_playing"
+    elsif @sort_by == "now_playing"
       @data = Tmdb::Movie.now_playing(page: @page, region: 'US')
-    elsif params["sort_by"] == "upcoming"
+    elsif @sort_by == "upcoming"
       @data = Tmdb::Movie.upcoming(page: @page, region: 'US')
+    elsif @sort_by == "genre"
+      @data = Tmdb::Genre.movies(params[:genre].to_i)
     end
 
 

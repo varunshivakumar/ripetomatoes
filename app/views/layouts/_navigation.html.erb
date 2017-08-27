@@ -15,7 +15,27 @@
     <div id="now_playing" class="inlineBlock sortingLink posRel"><%= link_to 'Now Playing', root_path(sort_by: "now_playing") %></div>
     <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "upcoming") %></div>
     <div class="inlineBlock sortingLink posRel"><%= link_to 'Title', root_path %></div>
-    <div class="inlineBlock sortingLink posRel"><%= link_to 'Genre', genre_path %></div>
+    <div class="inlineBlock sortingLink posRel"><a data-toggle="popover" title="Pick a Genre" data-content='
+    <a href="<%=root_path(sort_by:"genre", genre: 28)%>"><button type="button" class="btn btn-primary">Action</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 12)%>"><button type="button" class="btn btn-primary">Adventure</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 16)%>"><button type="button" class="btn btn-primary">Animation</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 35)%>"><button type="button" class="btn btn-primary">Comedy</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 80)%>"><button type="button" class="btn btn-primary">Crime</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 99)%>"><button type="button" class="btn btn-primary">Documentary</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 18)%>"><button type="button" class="btn btn-primary">Drama</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 10751)%>"><button type="button" class="btn btn-primary">Family</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 14)%>"><button type="button" class="btn btn-primary">Fantasy</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 36)%>"><button type="button" class="btn btn-primary">History</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 27)%>"><button type="button" class="btn btn-primary">Horror</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 10402)%>"><button type="button" class="btn btn-primary">Music</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 9648)%>"><button type="button" class="btn btn-primary">Mystery</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 10749)%>"><button type="button" class="btn btn-primary">Romance</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 878)%>"><button type="button" class="btn btn-primary">Science Fiction</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 10770)%>"><button type="button" class="btn btn-primary">TV Movie</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 53)%>"><button type="button" class="btn btn-primary">Thriller</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 10752)%>"><button type="button" class="btn btn-primary">War</button></a>
+    <a href="<%=root_path(sort_by:"genre", genre: 37)%>"><button type="button" class="btn btn-primary">Western</button></a>
+    ' data-placement="bottom" class="pointer">Genre</a></div>
   </div>
 </div>
 

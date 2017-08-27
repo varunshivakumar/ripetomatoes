@@ -12,5 +12,4 @@ module MoviesHelper
     "Other"
   end
 
-
 end
