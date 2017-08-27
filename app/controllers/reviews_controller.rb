@@ -6,10 +6,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
-
-    unless @review.save
-      redirect_to :back
-    end
+    @review.save
 
     respond_to do |format|
       format.js

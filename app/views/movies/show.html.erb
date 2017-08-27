@@ -73,7 +73,7 @@
       </div>
 
       <!-- All reviews for this menu -->
-      <div>
+      <div id="review_list">
         <% @movie_reviews.each do |review| %>
           <%= render 'reviews/movie_review', review: review %>
         <% end %>
