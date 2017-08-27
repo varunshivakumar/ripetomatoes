@@ -3,9 +3,8 @@
   <div class="opens" style="font-size:1.8em;margin-bottom:15px;font-weight:400;"><%= review.comment %></div>
   <div class="merri" style="font-size:1.4em;margin-bottom:15px;color:gray;">
     <% review.rating.times do %>
-        <%= image_tag 'star.png', height: '20px', width: '20px', class: 'inlineBlock vertAlignTop', style: 'margin-right:10px;margin-top:1px;' %>
+        <%= image_tag 'star.png', height: '20px', width: '20px', class: 'inlineBlock vertAlignTop', style: 'margin-right:10px;margin-top:2px;' %>
     <% end %>
-    <div class="inlineBlock vertAlignTop" style="margin-right:10px;"><%= review.user.email %></div>
-    <div class="inlineBlock vertAlignTop"><%= review.created_at %></div>
+    <div class="inlineBlock vertAlignTop"><%= review.user.email %> <span style="margin: 0 5px">on</span> <%= review.created_at.strftime('%b %d, %Y') %></div>
   </div>
 </div>
