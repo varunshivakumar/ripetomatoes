@@ -52,25 +52,31 @@
       <% end %>
 
       <!-- Create a review for this menu -->
-      <div style="border-top:1px solid lightgrey;border-bottom:1px solid lightgrey;padding: 20px 0;margin: 25px 0;">
-        <%= form_for(@review, remote: true) do |f| %>
-            <%= f.hidden_field :movie, value: @movie.id %>
+      <% if current_user %>
+          <div style="border-top:1px solid lightgrey;border-bottom:1px solid lightgrey;padding: 20px 0;margin: 25px 0;">
+            <%= form_for(@review, remote: true) do |f| %>
+                <%= f.hidden_field :movie, value: @movie.id %>
 
-            <%= f.label :rating %><br>
-            <div class="rating vertCenterLeft">
-              <%= f.radio_button :rating, 5, :id => 'star5' %><label for="star5"></label>
-              <%= f.radio_button :rating, 4, :id => 'star4'  %><label for="star4"></label>
-              <%= f.radio_button :rating, 3, :id => 'star3'  %><label for="star3"></label>
-              <%= f.radio_button :rating, 2, :id => 'star2'  %><label for="star2"></label>
-              <%= f.radio_button :rating, 1, :id => 'star1'  %><label for="star1"></label>
-            </div>
+                <%= f.label :rating %><br>
+                <div class="rating vertCenterLeft">
+                  <%= f.radio_button :rating, 5, :id => 'star5' %><label for="star5"></label>
+                  <%= f.radio_button :rating, 4, :id => 'star4'  %><label for="star4"></label>
+                  <%= f.radio_button :rating, 3, :id => 'star3'  %><label for="star3"></label>
+                  <%= f.radio_button :rating, 2, :id => 'star2'  %><label for="star2"></label>
+                  <%= f.radio_button :rating, 1, :id => 'star1'  %><label for="star1"></label>
+                </div>
 
-            <%= f.label :comment %><br>
-            <%= f.text_area :comment, placeholder: 'Write your review here!', style: 'height:150px;width:700px;font-size:1.5em;padding:10px;' %>
+                <%= f.label :comment %><br>
+                <%= f.text_area :comment, placeholder: 'Write your review here!', style: 'height:150px;width:700px;font-size:1.5em;padding:10px;' %>
 
-            <div><%= f.submit 'Submit', style:'border:none;background-color:#E85256;border-radius:5px;color:white;font-weight:400;padding:10px 25px;font-size:1.5em;margin-top:15px;' %></div>
-        <% end %>
-      </div>
+                <div><%= f.submit 'Submit', style:'border:none;background-color:#E85256;border-radius:5px;color:white;font-weight:400;padding:10px 25px;font-size:1.5em;margin-top:15px;' %></div>
+            <% end %>
+          </div>
+      <% else %>
+          <div style="border-top:1px solid lightgrey;border-bottom:1px solid lightgrey;padding: 20px 0;margin: 25px 0;font-size:2em;">
+            You must be logged in to write a review
+          </div>
+      <% end %>
 
       <!-- All reviews for this menu -->
       <div id="review_list">
