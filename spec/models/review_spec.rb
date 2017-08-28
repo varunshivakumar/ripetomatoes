@@ -31,11 +31,6 @@ RSpec.describe Review, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it "is not valid without a created_date" do
-    subject.created_at = nil
-    expect(subject).to_not be_valid
-  end
-
   it "is valid without a comment" do
     expect(subject).to be_valid
   end
