@@ -11,11 +11,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'http'
 gem 'themoviedb-api'
 gem 'rspec'
-gem 'sqlite3'
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'
+  gem 'sqlite3'
 end
 group :development do
   gem 'web-console'
