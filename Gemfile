@@ -44,5 +44,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 group :production do
-  gem 'sqlite3'
+  gem 'pg'
 end
