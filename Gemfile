@@ -43,3 +43,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+group :production do
+  gem 'sqlite3'
+end
