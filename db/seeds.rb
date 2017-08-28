@@ -8,6 +8,7 @@
 # user = CreateAdminService.new.call
 # puts 'CREATED ADMIN USER: ' << user.email
 
+# Must create Movie model in order to seed movies
 api_key = "5c6aa64f2306d670d1918784955b7812"
 latest = JSON.parse(HTTP.get("https://api.themoviedb.org/3/movie/latest?api_key=#{api_key}&language=en-US"))["id"]
 
