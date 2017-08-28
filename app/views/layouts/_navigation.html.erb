@@ -17,9 +17,9 @@
     <div id="popular" class="inlineBlock sortingLink posRel"><%= link_to 'Popular', root_path %></div>
     <div id="top_rated" class="inlineBlock sortingLink posRel"><%= link_to 'Top Rated', root_path(sort_by: "top_rated") %></div>
     <div id="now_playing" class="inlineBlock sortingLink posRel"><%= link_to 'Now Playing', root_path(sort_by: "now_playing") %></div>
-    <div id="release_dates" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "upcoming") %></div>
+    <div id="upcoming" class="inlineBlock sortingLink posRel"><%= link_to 'Release Date', root_path(sort_by: "upcoming") %></div>
     <div class="inlineBlock sortingLink posRel"><%= link_to 'Title', root_path %></div>
-    <div class="inlineBlock sortingLink posRel"><a data-toggle="popover" title="Pick a Genre" data-content='
+    <div id="genre" class="inlineBlock sortingLink posRel"><a data-toggle="popover" title="Pick a Genre" data-content='
     <a href="<%=root_path(sort_by:"genre", genre: 28)%>"><button type="button" class="btn btn-primary">Action</button></a>
     <a href="<%=root_path(sort_by:"genre", genre: 12)%>"><button type="button" class="btn btn-primary">Adventure</button></a>
     <a href="<%=root_path(sort_by:"genre", genre: 16)%>"><button type="button" class="btn btn-primary">Animation</button></a>

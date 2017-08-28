@@ -10,4 +10,35 @@
     <%= link_to('Rails Composer', 'http://railsapps.github.io/rails-composer/') %>
     from the <%= link_to('RailsApps project', 'http://railsapps.github.io/') %>.
   </p>
+  <br/>
+  <p>
+    <b>Styling</b><br/> Completely custom with hints of boostrap.
+    TODO: refractor inline css into scss
+  </p>
+  <p>
+    <b>Models</b><br/> Only Review and User. I excluded the Movie model because all the information is stored in "The Movie Database API".
+    We could use the seed file to query for every movie and store the details in our own database.
+  </p>
+  <p>
+    <b>Gems</b><br/>
+    Tmdb (for movie details)<br/>
+    Devise (for secure user login/signup)<br/>
+    Rspec (for testing) <br/>
+  </p>
+  <p>
+    <b>Testing (Rspec)</b><br/>
+    $ spec/models/review_spec.rb
+  </p>
+  <p>
+    <b>Hosting</b><br/>
+    Heroku
+  </p>
+  <br/>
+  <!--
+  <p>
+    What does sort by title mean? Alphabetically?<br/>
+    Should I load reviews from Tmdb or are they all custom?<br/>
+    Do you have to be logged in to rate a movie? Otherwise how would you get their email?
+  </p>
+  -->
 </div>

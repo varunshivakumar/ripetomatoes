@@ -10,6 +10,7 @@ class VisitorsController < ApplicationController
     @page = params[:page].nil? ? 1 : params[:page]
 
     if @sort_by.nil?
+      @sort_by = "popular"
       @data = Tmdb::Movie.popular(page: @page, region: 'US')
     elsif @sort_by == "top_rated"
       @data = Tmdb::Movie.top_rated(page: @page, region: 'US')
@@ -19,6 +20,9 @@ class VisitorsController < ApplicationController
       @data = Tmdb::Movie.upcoming(page: @page, region: 'US')
     elsif @sort_by == "genre"
       @data = Tmdb::Genre.movies(params[:genre].to_i)
+    else
+      @sort_by = "popular"
+      @data = Tmdb::Movie.popular(page: @page, region: 'US')
     end
 
 
