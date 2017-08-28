@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'http'
 gem 'themoviedb-api'
+gem 'rspec'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'

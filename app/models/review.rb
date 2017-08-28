@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  validates :rating, presence: true
+  validates_presence_of :rating, :movie, :created_at
   belongs_to :user
 end
